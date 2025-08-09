@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         if (Schema::HasTable('categories')) {
-            View::share('categories', Category::ordeBy('name')->get());
+            View::share('categories', Category::orderBy('name')->get());
         }
     }
 }
