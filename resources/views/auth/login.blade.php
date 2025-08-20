@@ -1,8 +1,9 @@
 <x-layout>
     <section class="container">
+        <h1 class="text-center display-6 m-5">Accedi</h1>
         <div class="row">
             <div class="col-12">
-                <form class="" method="POST" action="{{ route('login') }}">
+                <form class="formLogin" method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email</label>
@@ -16,7 +17,7 @@
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Ricordami</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Accedi</button>
+                    <button type="submit" class="btnLogin">Accedi</button>
                 </form>
             </div>
         </div>

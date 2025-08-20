@@ -9,7 +9,12 @@
                 <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                     <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Collezione</button>
+                    @auth
+                    <a href="{{ route('create.article') }}" type="button" class="btn btn-outline-secondary btn-lg px-4">Crea</a>
+                    @endauth
+                    @guest
                     <button type="button" class="btn btn-outline-secondary btn-lg px-4">Accedi</button>
+                    @endguest
                 </div>
             </div>
         </div>
