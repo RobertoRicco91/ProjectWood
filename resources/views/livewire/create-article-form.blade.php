@@ -1,6 +1,6 @@
 <form class="formCreaArticolo" wire:submit="store">
     @if (session()->has('success'))
-        <div class="alert alert-success text-center">{{ session('success') }}"></div>
+        <div class="alert alert-success text-center">{{ session('success') }}</div>
     @endif
     <div class="mb-3">
         <label for="titleArticle" class="form-label">Titolo</label>
