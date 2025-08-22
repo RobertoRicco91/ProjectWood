@@ -5,6 +5,11 @@
                 {{session('message')}}
             </div>
         @endif
+        @if (session()->has('message'))
+            <div class="alert alert-success text-center">
+                {{session('message')}}
+            </div>
+        @endif
         <!-- sezione con buttons -->
         <section class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-12 col-sm-8 col-lg-6">

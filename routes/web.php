@@ -14,6 +14,8 @@ Route::get('/create/article/{article}', [ArticleController::class, 'show'])->nam
 // rotte categorie
 Route::get('/category/{category}', [ArticleController::class, 'byCategory'])->name('byCategory');
 // rotte per revisor
+Route::get('/revisor/request', [RevisorController::class, 'becomeRevisor'])->middleware('auth')->name('become.revisor');
+Route::get('/make/revisor/{user}', [RevisorController::class, 'makeRevisor'])->name('make.revisor');
 Route::get('/revisor', [RevisorController::class, 'index'])->name('revisor.index');
 Route::patch('/accept/{article}', [RevisorController::class, 'accept'])->name('accept');
 Route::patch('/reject/{article}', [RevisorController::class, 'reject'])->name('reject');
