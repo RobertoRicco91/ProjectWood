@@ -13,6 +13,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{route('index.article')}}">Tutti gli articoli</a>
         </li>
+        <!-- dropdown categories -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categorie
@@ -26,6 +27,7 @@
             @endforeach
           </ul>
         </li>
+        <!-- dropdown authorized -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Ciao, {{Auth::user()->name}}
@@ -33,6 +35,13 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a></li>
             <form action="{{route('logout')}}" method="POST" id="form-logout">@csrf</form>
+            @if (Auth::user()->is_revisor)
+              <li >
+                <a class="dropdown-item position-relative" href="{{route('revisor.index')}}">Dashboard Revisore
+                <span class="position-absolute translate-middle badge rounded-pill bg-danger notificaRevisor">{{\App\Models\Article::toBeRevisedCount()}}</span>
+                </a>
+              </li>
+            @endif
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li>
               <hr class="dropdown-divider">
@@ -50,6 +59,20 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('register')}}">Registrati</a>
+        </li>
+        <!-- dropdown categories -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categorie
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            @foreach ($categories as $category)
+              <li><a class="dropdown-item text-capitalize" href="{{route('byCategory', ['category' => $category])}}">{{$category->name}}</a></li>
+              @if (!$loop->last)
+              <hr class="dropdown-divider">
+              @endif
+            @endforeach
+          </ul>
         </li>
       </ul>
       <form class="d-flex">

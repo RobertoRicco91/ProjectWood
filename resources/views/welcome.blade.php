@@ -1,5 +1,10 @@
 <x-layout>
     <header class="container col-xxl-8 px-4 py-5 titleHero">
+        @if (session()->has('message'))
+            <div class="alert alert-danger text-center">
+                {{session('message')}}
+            </div>
+        @endif
         <!-- sezione con buttons -->
         <section class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-12 col-sm-8 col-lg-6">
@@ -21,7 +26,7 @@
         </section>
         <section class="row justify-content-around mb-5 mt-5">
             <div class="col-12">
-                <h1 class="display-5 fw-bold lh-1 my-3 mb-5 text-center">Nuovi Articoli</h1>
+                <h2 class="display-5 fw-bold lh-1 my-3 mb-5 text-center">Nuovi Articoli</h2>
             </div>
             @forelse ($articles as $article)
             <div class="col-12 col-md-3">
