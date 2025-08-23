@@ -6,7 +6,8 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\RevisorController;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
-
+// rotta per la ricerca
+Route::get('/search/article', [PublicController::class, 'searchArticles'])->name('article.search');
 // rotte livewire CRUD Articoli
 Route::get('/create/article', [ArticleController::class, 'create'])->name('create.article');
 Route::get('/create/index', [ArticleController::class, 'index'])->name('index.article');
@@ -19,4 +20,5 @@ Route::get('/make/revisor/{user}', [RevisorController::class, 'makeRevisor'])->n
 Route::get('/revisor', [RevisorController::class, 'index'])->name('revisor.index');
 Route::patch('/accept/{article}', [RevisorController::class, 'accept'])->name('accept');
 Route::patch('/reject/{article}', [RevisorController::class, 'reject'])->name('reject');
+
 
