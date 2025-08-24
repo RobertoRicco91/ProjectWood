@@ -14,16 +14,20 @@
         @endif
         <!-- articoli da revisionare -->
          @if ($article_to_check)
-             <section class="row">
-                <div class="col-6">
-                    <div class="row">
-                        @for ($i = 0; $i < 3; $i++)
-                            <div class="col-6">
-                                <img src="https://picsum.photos/400" alt="foto segnaposto" class ="img-fluid">
-                            </div>
-                        @endfor
+            @if ($article_to_check->images->count() > 0)
+                @foreach ($article_to_check->images as $key=>$image)
+                    <div class="col-6 col-md-4 mb-4">
+                        <img src="{{ Storage::url($image->path)}}" class="img-fluid" alt="Immagine {{$key +1}} dell'articolo {{$article_to_check->title}}">
                     </div>
-                </div>
+                @endforeach
+            @else
+                @for ($i = 0; $i < 6; $i++)
+                    <div class="col-6 col-md-4 text-center">
+                                <img src="https://picsum.photos/400" alt="foto segnaposto" class ="img-fluid">
+                    </div>
+                @endfor
+            @endif
+             <section class="row">
                 <div class="col-md-4 d-flex flex-column justify-content-between">
                     <div>
                         <h4>{{$article_to_check->title}}</h4>

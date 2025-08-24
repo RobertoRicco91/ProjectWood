@@ -34,5 +34,31 @@
             <span>{{ $message }}</span>
         @enderror
     </div>
+    <div class="mb-3">
+        <label for="imageArticle" class="form-label">Inserisci le immagini</label>
+        <input type="file" multiple class="form-control @error('temporary_images.*') is-invalid @enderror" id="imageArticle" wire:model.live="temporary_images" placeholder="Img/">
+        @error('temporary_images.*')
+            <span>{{ $message }}</span>
+        @enderror
+        @error('temporary_images')
+            <span>{{ $message }}</span>
+        @enderror
+    </div>
+    @if (!empty($images))
+        <div class="row">
+            <div class="col-12">
+                <p>photo preview</p>
+                <div class="row">
+                    @foreach ($images as $key => $image)
+                        <div class="col d-flex flex-column align-items-center">
+                            <div class="img-preview shadow rounded" style="background-image: url('{{ $image->temporaryUrl() }}');" >
+                            </div>
+                            <button type="button" class="btn btn-danger" wire:click="removeImage({{ $key }})">X</button>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    @endif
     <button type="submit" class="btnCreaArticolo">Crea</button>
 </form>
