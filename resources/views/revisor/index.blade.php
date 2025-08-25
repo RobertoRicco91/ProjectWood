@@ -6,7 +6,7 @@
             </div>
         </section>
         @if (session()->has('message'))
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-5 alert-success alert text-center">
                     {{session('message')}}
                 </div>
@@ -15,11 +15,25 @@
         <!-- articoli da revisionare -->
          @if ($article_to_check)
             @if ($article_to_check->images->count() > 0)
-                @foreach ($article_to_check->images as $key=>$image)
-                    <div class="col-6 col-md-4 mb-4">
-                        <img src="{{ Storage::url($image->path)}}" class="img-fluid" alt="Immagine {{$key +1}} dell'articolo {{$article_to_check->title}}">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach ($article_to_check->images as $key=>$image)
+                            <div class="carousel-item active @if($loop->first) active @endif">
+                                <img src="{{ $image->getUrl(300, 300) }}" class="img-fluid w-100" alt="Immagine {{$key +1}} dell'articolo {{$article_to_check->title}}">
+                            </div>
+                        @endforeach
                     </div>
-                @endforeach
+                    @if ($article_to_check->images->count() > 1)
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    @endif
+                </div>
             @else
                 @for ($i = 0; $i < 6; $i++)
                     <div class="col-6 col-md-4 text-center">

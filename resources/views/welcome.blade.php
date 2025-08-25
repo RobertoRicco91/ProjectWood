@@ -39,7 +39,7 @@
             </div>
             @empty
             <div class="col-12">
-                <h4 class="display-5 fw-bold lh-1 mb-3 text-center">Non ci sono articoli</h4>
+                <h4 class=" mb-3 text-center">Non ci sono articoli</h4>
             </div>
             @endforelse
         </section>
