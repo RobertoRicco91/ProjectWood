@@ -37,4 +37,12 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
         ]);
     }
+
+    public function messages() {
+        return [
+            'name.required' => 'Il nome è obbligatorio',
+            'email.required' => 'La email è obbligatoria',
+            'password.required' => 'La password è obbligatoria',
+        ];
+    }
 }

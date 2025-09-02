@@ -7,5 +7,6 @@ scout:import invece importa tutti i record di un modello in un indice di ricerca
 php artisan scout:flush "App\Models\Article"
 php artisan scout:import "App\Models\Article"
 php artisan scout:status
+
 <!-- attivare job -->
 php artisan queue:work

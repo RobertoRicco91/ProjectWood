@@ -1,4 +1,4 @@
-<form class="formCreaArticolo" wire:submit="store">
+<form class="formCreaArticolo p-4" wire:submit="store">
     @if (session()->has('success'))
         <div class="alert alert-success text-center">{{ session('success') }}</div>
     @endif
@@ -47,7 +47,7 @@
     @if (!empty($images))
         <div class="row">
             <div class="col-12">
-                <p>photo preview</p>
+                <p>preview immagini</p>
                 <div class="row">
                     @foreach ($images as $key => $image)
                         <div class="col d-flex flex-column align-items-center">

@@ -16,12 +16,25 @@ body{
     cursor: pointer;
 }
 .notificaRevisor{
-    top: 10px;
-    right: 5px;
+    top: 17px;
+    right: 1px;
     align-items: center;
     justify-content: center;
-    margin-top: 5px;
+    display: flex;
+    /* margin-top: 5px; */
 
+}
+.categoryStyle {
+    transition: all 0.3s ease;
+    background: white;
+}
+.categoryStyle:hover{
+    transition: 0.5s;
+    /* transform: scale(1.002); */
+    cursor: pointer;
+    background: black;
+    color: whitesmoke;
+    border-radius: 10px;
 }
 
 /* header */
@@ -31,9 +44,9 @@ body{
 
 /* register */
 .formRegister{
-    background: red;
-    color: white;
-    box-shadow: 0px 0px 10px 10px rgba(196, 9, 9, 0.578);
+    background: whitesmoke;
+    color: black;
+    box-shadow: 0px 0px 10px 10px darkgrey;
     border-radius: 8px;
 }
 .btnRgistrati{
@@ -51,9 +64,9 @@ body{
 /* login */
 
 .formLogin{
-    background: red;
-    color: white;
-    box-shadow: 0px 0px 10px 10px rgba(196, 9, 9, 0.578);
+    background: whitesmoke;
+    color: black;
+    box-shadow: 0px 0px 10px 10px darkgrey;
     border-radius: 8px;
 }
 .btnLogin{
@@ -71,9 +84,9 @@ body{
 /* form crea articolo */
 
 .formCreaArticolo{
-    background: red;
-    color: white;
-    box-shadow: 0px 0px 10px 10px rgba(196, 9, 9, 0.578);
+    background: whitesmoke;
+    color: black;
+    box-shadow: 0px 0px 10px 10px darkgrey;
     border-radius: 8px;
 }
 .btnCreaArticolo{
@@ -86,6 +99,8 @@ body{
     text-align: center;
     justify-content: center;
     cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .img-preview{
     width: 100px;
